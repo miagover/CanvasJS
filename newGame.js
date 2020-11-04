@@ -2,6 +2,11 @@
 var line = [0, 0, 0, 0];
 var lineChange = [1, 2, 3, 4];
 
+// Count frames, track time so we can compute fps rate
+var frames = 0;
+var start = new Date();
+var now = new Date();
+
 function drawAll()
 /*
   Purpose: This is the main drawing loop.
@@ -9,6 +14,13 @@ function drawAll()
   Returns: None, but it calls itself to cycle to the next frame
 */
 {
+  frames += 1;
+  if (frames % 200 == 0) {
+    now = new Date();
+    secs = now.getSeconds() - start.getSeconds();
+    console.log("fps:", frames / secs);
+  }
+
   // Change the line endpoints some.
   line[0] += lineChange[0];
   line[1] += lineChange[1];
