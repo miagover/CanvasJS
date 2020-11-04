@@ -16,17 +16,26 @@ function drawAll()
   line[3] += lineChange[3];
 
   // If the line hits the end of the canvas, bounce
+  // Add/subtract a little speed
   if ((line[0] > canvas.width) || (line[0] < 0)) {
     lineChange[0] *= -1;
+    lineChange[0] += Math.random() - 0.5;
+    console.log(lineChange);
   }
   if ((line[1] > canvas.height) || (line[1] < 0)) {
     lineChange[1] *= -1;
+    lineChange[1] += Math.random() - 0.5;
+    console.log(lineChange);
   }
   if ((line[2] > canvas.width) || (line[2] < 0)) {
     lineChange[2] *= -1;
+    lineChange[2] += Math.random() - 0.5;
+    console.log(lineChange);
   }
   if ((line[3] > canvas.height) || (line[3] < 0)) {
     lineChange[3] *= -1;
+    lineChange[3] += Math.random() - 0.5;
+    console.log(lineChange);
   }
 
   // Draw the line
