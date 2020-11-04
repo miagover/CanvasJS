@@ -40,11 +40,13 @@ function drawAll()
 
   // Draw the line
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.lineWidth = 3;
-  context.lineCap = 'round';
-  context.beginPath();
-  context.moveTo(line[0], line[1]);
-  context.lineTo(line[2], line[3]);
+//  context.lineWidth = 3;
+//  context.lineCap = 'round';
+//  context.beginPath();
+//  context.moveTo(line[0], line[1]);
+//  context.lineTo(line[2], line[3]);
+  context.fillStyle = "#00ff00";
+  context.fillRect(line[0], line[1], line[2] - line[0], line[3] - line[1]);
   context.stroke();
 
   // Loop the animation to the next frame.
