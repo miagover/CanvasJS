@@ -6,6 +6,7 @@ var lineChange = [1, 2, 3, 4];
 var frames = 0;
 var start = new Date();
 var now = new Date();
+console.log(start);
 
 function drawAll()
 /*
@@ -17,8 +18,9 @@ function drawAll()
   frames += 1;
   if (frames % 200 == 0) {
     now = new Date();
-    secs = now.getSeconds() - start.getSeconds();
-    console.log("fps:", frames / secs);
+    msecs = now.getTime() - start.getTime();
+    console.log(now.getTime());
+    console.log("fps:", (frames / msecs) * 1000);
   }
 
   // Change the line endpoints some.
@@ -32,22 +34,22 @@ function drawAll()
   if ((line[0] > canvas.width) || (line[0] < 0)) {
     lineChange[0] *= -1;
     lineChange[0] += Math.random() - 0.5;
-    console.log(lineChange);
+    // console.log(lineChange);
   }
   if ((line[1] > canvas.height) || (line[1] < 0)) {
     lineChange[1] *= -1;
     lineChange[1] += Math.random() - 0.5;
-    console.log(lineChange);
+    // console.log(lineChange);
   }
   if ((line[2] > canvas.width) || (line[2] < 0)) {
     lineChange[2] *= -1;
     lineChange[2] += Math.random() - 0.5;
-    console.log(lineChange);
+    // console.log(lineChange);
   }
   if ((line[3] > canvas.height) || (line[3] < 0)) {
     lineChange[3] *= -1;
     lineChange[3] += Math.random() - 0.5;
-    console.log(lineChange);
+    // console.log(lineChange);
   }
 
   // Draw the line
