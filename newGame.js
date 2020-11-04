@@ -1,3 +1,7 @@
+// The first two coordinates are one end, the second two are the other end.
+var line = [0, 0, 0, 0];
+var lineChange = [1, 2, 3, 4];
+
 function drawAll()
 /*
   Purpose: This is the main drawing loop.
@@ -5,12 +9,24 @@ function drawAll()
   Returns: None, but it calls itself to cycle to the next frame
 */
 {
+  // Change the line endpoints some.
+  line[0] += lineChange[0];
+  line[1] += lineChange[1];
+  line[2] += lineChange[2];
+  line[3] += lineChange[3];
+
+  // Draw the line
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.lineWidth = 3;
+  context.lineCap = 'round';
+  context.beginPath();
+  context.moveTo(line[0], line[1]);
+  context.lineTo(line[2], line[3]);
+  context.stroke();
 
   // Loop the animation to the next frame.
   window.requestAnimationFrame(drawAll);
-
 }
-
 
 // Get width/height of the browser window
 windowWidth = window.innerWidth;
