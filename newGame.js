@@ -25,13 +25,12 @@ var start = new Date();
 var now = new Date();
 console.log(start);
 
-function drawAll()
-/*
-  Purpose: This is the main drawing loop.
-  Inputs: None, but it is affected by what the other functions are doing
-  Returns: None, but it calls itself to cycle to the next frame
-*/
-{
+function calculateFPS () {
+  /*
+    Parameters: None
+    Returns: None
+    Purpose: Calculate and write to console the frame rate.
+  */
   frames += 1;
   if (frames % 200 == 0) {
     now = new Date();
