@@ -3,8 +3,8 @@ var linePos = [0, 0, 0, 0];
 var lineVel = [1, 2, 3, 4];
 
 // First two coordinates are x,y of center, last is radius
-var circlePos = [300, 300, 25];
-var circleVel = [3, -3, 0];
+var circlePos = [0, 0, 25];
+var circleVel = [0, 0, 0];
 
 function applyVelocity (position, velocity) {
   /*
@@ -40,6 +40,38 @@ function calculateFPS () {
   }
 }
 
+function myKeyDown (event) {
+  /*
+    Parameters: event object, which contains information about the event
+      that triggered the event listener.
+    Returns: None, but modifies global variables which track response to event.
+    Purpose: Make the animation respond to keys being pressed.
+  */
+  // One of the attributes of the event object is 'which,' contains the key
+  //   that was pressed to trigger the event listener.
+  keyCode = event.which;
+  keyStr = event.key;
+  console.log(event);
+  console.log(keyCode);
+  console.log(keyStr);
+
+  if (keyStr == 'w') {
+    // Move circle up
+    circleVel[1] -= 1;
+  }
+  if (keyStr == 'a') {
+    // Move circle left
+    circleVel[0] -= 1;
+  }
+  if (keyStr == 's') {
+    // Move circle down
+    circleVel[1] += 1;
+  }
+  if (keyStr == 'd') {
+    // Move circle right
+    circleVel[0] += 1;
+  }
+}
 
 function drawAll()
 /*
@@ -106,6 +138,13 @@ canvas.style.border = "1px solid black";
 
 // Set up the context for the animation
 context = canvas.getContext("2d");
+
+// Set up event listener for when user presses a key down.
+// It then calls the function myKeyDown, passing it an event object.
+document.addEventListener("keydown", myKeyDown);
+
+// Start the circle in the center of the canvas.
+circlePos = [ Math.floor(canvas.width / 2), Math.floor(canvas.height / 2), 25];
 
 // Fire up the animation engine
 window.requestAnimationFrame(drawAll);
