@@ -1,9 +1,9 @@
 class Line {
   // Notice that the constructor takes some of its values as inputs,
   //   and sets others by itself.
-  constructor() {
-    this._pt1 = [0, 0];
-    this._pt2 = [0, 0];
+  constructor(x1, y1, x2, y2) {
+    this._pt1 = [x1, y1];
+    this._pt2 = [x2, y2];
     this._vel1 = [Math.random() * 4 - 2, Math.random() * 4 - 2];
     this._vel2 = [Math.random() * 4 - 2, Math.random() * 4 - 2];
     this.color = "#0000ff";
@@ -60,43 +60,51 @@ class Line {
     //   the velocity by a little.
     if (this.pt1[0] > canvas.width) {
       this.pt1[0] = canvas.width;
-      this.vel1[0] *= -1;
       this.vel1[0] += Math.random() - 0.5;
+      if (this.vel1[0] > 0) {this.vel1[0] *= -1;}
+      console.log(line);
     }
     if (this.pt1[0] < 0) {
       this.pt1[0] = 0;
-      this.vel1[0] *= -1;
       this.vel1[0] += Math.random() - 0.5;
+      if (this.vel1[0] < 0) {this.vel1[0] *= -1;}
+      console.log(line);
     }
     if (this.pt2[0] > canvas.width) {
       this.pt2[0] = canvas.width;
-      this.vel2[0] *= -1;
       this.vel2[0] += Math.random() - 0.5;
+      if (this.vel2[0] > 0) {this.vel2[0] *= -1;}
+      console.log(line);
     }
     if (this.pt2[0] < 0) {
       this.pt2[0] = 0;
-      this.vel2[0] *= -1;
       this.vel2[0] += Math.random() - 0.5;
+      if (this.vel2[0] < 0) {this.vel2[0] *= -1;}
+      console.log(line);
     }
     if (this.pt1[1] > canvas.height) {
       this.pt1[1] = canvas.height;
-      this.vel1[1] *= -1;
       this.vel1[1] += Math.random() - 0.5;
+      if (this.vel1[1] > 0) {this.vel1[1] *= -1;}
+      console.log(line);
     }
     if (this.pt1[1] < 0) {
       this.pt1[1] = 0;
-      this.vel1[1] *= -1;
       this.vel1[1] += Math.random() - 0.5;
+      if (this.vel1[1] < 0) {this.vel1[1] *= -1;}
+      console.log(line);
     }
     if (this.pt2[1] > canvas.height) {
       this.pt2[1] = canvas.height;
-      this.vel2[1] *= -1;
       this.vel2[1] += Math.random() - 0.5;
+      if (this.vel2[1] > 0) {this.vel2[1] *= -1;}
+      console.log(line);
     }
     if (this.pt2[1] < 0) {
       this.pt2[1] = 0;
-      this.vel2[1] *= -1;
       this.vel2[1] += Math.random() - 0.5;
+      if (this.vel2[1] < 0) {this.vel2[1] *= -1;}
+      console.log(line);
     }
   }
 

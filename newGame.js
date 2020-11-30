@@ -5,10 +5,11 @@ function drawAll()
   Returns: None, but it calls itself to cycle to the next frame
 */
 {
+  // Set up the frame
   line.applyVelocity();
   line.bounceCheck();
 
-  // Draw the line
+  // Draw the new frame
   context.clearRect(0, 0, canvas.width, canvas.height);
   line.draw();
 
@@ -32,7 +33,7 @@ canvas.style.border = "1px solid black";
 context = canvas.getContext("2d");
 
 // Create instance of Line object
-line = new Line();
+line = new Line(0, 0, 0, 0);
 console.log(line);
 context.strokeStyle = line.color;
 context.lineWidth = line.width;
