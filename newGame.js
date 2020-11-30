@@ -19,27 +19,6 @@ function applyVelocity (position, velocity) {
   }
 }
 
-// Count frames, track time so we can compute fps rate
-var frames = 0;
-var start = new Date();
-var now = new Date();
-console.log(start);
-
-function calculateFPS () {
-  /*
-    Parameters: None
-    Returns: None
-    Purpose: Calculate and write to console the frame rate.
-  */
-  frames += 1;
-  if (frames % 200 == 0) {
-    now = new Date();
-    msecs = now.getTime() - start.getTime();
-    console.log(now.getTime());
-    console.log("fps:", (frames / msecs) * 1000);
-  }
-}
-
 function myKeyDown (event) {
   /*
     Parameters: event object, which contains information about the event
@@ -80,8 +59,6 @@ function drawAll()
   Returns: None, but it calls itself to cycle to the next frame
 */
 {
-  calculateFPS();
-
   applyVelocity(linePos, lineVel);
   applyVelocity(circlePos, circleVel);
 
