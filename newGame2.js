@@ -42,25 +42,27 @@ function onKeyPress(e){
         var notGreens = solutionStr.split("");
         if (guessLetters.length == 5){
             for (i=0; i<rows.length; i++) {
+                alert(i);
                 if (rows[i].current == true) {
-                    for (j=0; i<rows[i].sqlist.length; i++) {
-                        rows[i].sqlist[j] = guessLetters[0].toUpperCase();
+                    var len = rows[i].sqlist.length;
+                    for (j=0; j<len; i++) {
+                        alert(rows[i]);
+                        rows[i].sqlist[j].content = guessLetters[j].toUpperCase();
                         if (guessLetters[j] == answer[j]) {
                             rows[i].sqlist[j].status = "green";
-                            let index = notGreens.indexOf(guessLetters[0]);
+                            let index = notGreens.indexOf(guessLetters[j]);
                             notGreens.splice(index, 1);
                             rows[i].sqlist[j].draw();
                         }
                         else if (!answer.includes(guessLetters[j])) {
-                            rows[i].sq1.status = "grey";
+                            rows[i].sqlist[j].status = "grey";
                             rows[i].sqlist[j].draw();
                         }
-                        alert(notGreens);
                     }
                 }
             }
-            rows[drawn].current = false;
-            rows[drawn+1].current = true;
+            rows[i].current = false;
+            rows[i+1].current = true;
         }
         else {
             alert("Guesses must be 5 letters!");

@@ -62,7 +62,7 @@ function onKeyPress(e){
                         let index = notGreens.indexOf(guessLetters[1]);
                         notGreens.splice(index, 1);
                     }
-                    else if (notGreens.includes(guessLetters[1])){
+                    else if (notGreens.includes(guessLetters[1]) && guessLetters.slice(2).indexOf(guessLetters[1]) != answer.slice(2).indexOf(guessLetters[1])){
                         rows[i].sq2.status = "yellow";
                     }
                     else {
