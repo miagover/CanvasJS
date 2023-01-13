@@ -24,7 +24,7 @@ row5.draw();
 let row6 = new Row(380);
 row6.draw();
 
-var solutionStr = "amply"
+var solutionStr = "uncle"
 var answer = solutionStr.split("");
 var rows = [row1, row2, row3, row4, row5, row6];
 
@@ -40,7 +40,10 @@ function onKeyPress(e){
         var guessValue = document.getElementById("guess").value;
         const guessLetters = guessValue.split("");
         var notGreens = solutionStr.split("");
-        if (guessLetters.length == 5){
+        if (guessLetters.length != 5) {
+            alert("Guesses must be 5 letters!");
+        }
+        else {
             for (i=0; i<rows.length; i++) {
                 if (rows[i].current == true) {
                     rows[i].sq1.content = guessLetters[0].toUpperCase();
@@ -62,7 +65,7 @@ function onKeyPress(e){
                         let index = notGreens.indexOf(guessLetters[1]);
                         notGreens.splice(index, 1);
                     }
-                    else if (notGreens.includes(guessLetters[1]) && guessLetters.slice(2).indexOf(guessLetters[1]) != answer.slice(2).indexOf(guessLetters[1])){
+                    else if (notGreens.includes(guessLetters[1]) && guessLetters.slice(1).indexOf(guessLetters[1]) != answer.slice(1).indexOf(guessLetters[1])){
                         rows[i].sq2.status = "yellow";
                     }
                     else {
@@ -75,7 +78,7 @@ function onKeyPress(e){
                         let index = notGreens.indexOf(guessLetters[2]);
                         notGreens.splice(index, 1);
                     }
-                    else if (notGreens.includes(guessLetters[2])){
+                    else if (notGreens.includes(guessLetters[2]) && guessLetters.slice(2).indexOf(guessLetters[2]) != answer.slice(2).indexOf(guessLetters[2])){
                         rows[i].sq3.status = "yellow";
                     }
                     else {
@@ -88,7 +91,7 @@ function onKeyPress(e){
                         let index = notGreens.indexOf(guessLetters[3]);
                         notGreens.splice(index, 1);
                     }
-                    else if (notGreens.includes(guessLetters[3])){
+                    else if (notGreens.includes(guessLetters[3]) && guessLetters.slice(3).indexOf(guessLetters[3]) != answer.slice(3).indexOf(guessLetters[3])){
                         rows[i].sq4.status = "yellow";
                     }
                     else {
@@ -101,7 +104,7 @@ function onKeyPress(e){
                         let index = notGreens.indexOf(guessLetters[4]);
                         notGreens.splice(index, 1);
                     }
-                    else if (notGreens.includes(guessLetters[4])){
+                    else if (notGreens.includes(guessLetters[4]) && guessLetters.slice(4).indexOf(guessLetters[4]) != answer.slice(4).indexOf(guessLetters[4])){
                         rows[i].sq5.status = "yellow";
                     }
                     else {
@@ -113,9 +116,6 @@ function onKeyPress(e){
             }
             rows[drawn].current = false;
             rows[drawn+1].current = true;
-        }
-        else {
-            alert("Guesses must be 5 letters!");
         }
     }
 }
